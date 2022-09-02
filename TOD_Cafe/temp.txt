@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Page</title>
+        <link rel="stylesheet" href="registration.css">
+        <script src="https://kit.fontawesome.com/ee1af068c0.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">Confirmation</div>
+            <form action="Backend_Register.php" method="post">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">FULL NAME:</span>
+                        <input type="text" placeholder="Enter The OTP:" name = "OTP" required>
+                    </div>
+                <div class="button">
+                    <input type="submit"  value="Confirm" name="OTP_user">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+
+
+    if ($conn->connect_error) 
+    {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    if($pass!=$cnf)
+    {
+        echo "Don't match with two password<br>";
+    }
+    else
+    {
+        $subject = "OTP Verification";
+        $body = "<!DOCTYPE html>
+        <html>
+            <body>
+               <h1>Your OTP IS:.$OTP.<h1> 
+            </body>
+        </html>";
+    $headers = ["MIME-Version:1.0", "Content-type:text/html", "From:todcafe.bd.com@gmail.com", ];
+    $headers = implode("\r\n", $headers);
+    if (mail($email, $subject, $body, $headers)) 
+    {
+         echo "Email successfully sent to $email...";
+         if (isset($_POST['OTP_user'])
+         {
+            $otp = $_POST['OTP'];
+            if($OTP===$otp)
+            {
+                $sql = "INSERT INTO persons_cust(username, fullname, email, phonenumber, pass, gender, OTP) 
+                VALUES ('$user','$name','$email','$phone','$pass','$gender', '$OTP')";
+                if ($conn->query($sql) === TRUE) 
+                {
+                    echo "New record created successfully";
+                } 
+                else 
+                {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            }
+        }
+    } 
+    else 
+    {
+        echo "Email sending failed...";
+    }

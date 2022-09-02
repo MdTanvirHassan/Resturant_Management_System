@@ -1,0 +1,45 @@
+*{margin: 0; padding:0;}
+a{
+    text-decoration: none;
+    
+}
+h1, h2, h3, h4, h5, h6{
+	font-weight: normal;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.fix{
+    overflow: hidden;
+}
+.container_full{
+    width: 100%;
+}
+.container{
+    width: 980px;
+    margin: 0 auto;
+    display: block;
+}
+.header_bg{
+    background: BLACK;
+}
+#header .logo_left{
+    float:left;
+}
+#header .logo_left h1{
+   font-family:'Qahiri', sans-serif;
+   font-weight: bold;
+   font-size: 40px;
+   color: rgb(238, 231, 231);
+   padding-top: 20px;
+   margin-left: 10PXpx;
+}
+#header .logo_left h2{
+    font-family: 'Irish Grover', cursive;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(158, 154, 154);
+    padding-top: 30px;
+    margin-left: 10px;
+ }
